@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="Gradle 1" modules="Calculabilite.Interpreter.main,Calculabilite.Interpreter.test,Calculabilite.PrettyPrinter.main,Calculabilite.PrettyPrinter.test,Calculabilite.While1Cons.main,Calculabilite.While1Cons.test">
+      <option name="deprecationWarnings" value="true" />
+      <option name="uncheckedWarnings" value="true" />
+    </profile>
+  </component>
+</project>

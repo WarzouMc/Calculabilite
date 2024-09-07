@@ -1,0 +1,7 @@
+dependencies {
+    implementation librairies.scala
+    implementation librairies.combinator
+
+    testImplementation librairies.scalaTest
+    testImplementation librairies.junit
+}

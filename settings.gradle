@@ -1,0 +1,5 @@
+rootProject.name = "Calculabilite"
+include 'PrettyPrinter'
+include 'Interpreter'
+include 'While1Cons'
+

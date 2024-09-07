@@ -1,0 +1,49 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+    id 'java'
+}
+
+allprojects {
+    apply plugin: 'scala'
+    apply plugin: 'java-library'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    group 'fr.cal'
+    version '0.0.1'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    jar.archiveFileName = "${project.name}.jar"
+    shadowJar.archiveFileName = jar.archiveFileName
+    shadowJar.minimize()
+
+    processResources.from(sourceSets.main.resources.srcDirs) {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+        filter(ReplaceTokens, tokens: [VERSION: project.version])
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+        options.compilerArgs += ['--enable-preview']
+        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+ext {
+    librairies = [:]
+}
+
+librairies.scala = 'org.scala-lang:scala-library:2.13.8'
+librairies.scalaTest = 'org.scalatest:scalatest_2.11:3.2.11'
+librairies.junit = 'junit:junit:4.13.2'
+librairies.combinator = 'org.scala-lang.modules:scala-parser-combinators_3:2.4.0'
