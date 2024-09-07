@@ -10,7 +10,7 @@ allprojects {
     apply plugin: 'java-library'
     apply plugin: 'com.github.johnrengelman.shadow'
 
-    group 'fr.cal'
+    group 'fr.calculabilite'
     version '0.0.1'
 
     repositories {
